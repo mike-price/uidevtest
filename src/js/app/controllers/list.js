@@ -13,25 +13,6 @@ define(['jquery'],function($)
 		{
 			var $this = $(this);
 
-			data.model = Backbone.Model.extend(
-			{
-
-			    // Default attributes for the todo item.
-			    defaults: function() 
-			    {
-			      return {
-			        title: "",
-			        order: data.story_list.nextOrder(),
-			        done: false
-			      };
-			    }
-			 });
-
-			data.list =  Backbone.Collection.extend(
-			{
-			 	model: data.model
-			});	
-
 			view._class = Backbone.View.extend(
 			{
 				el: $this,
@@ -42,6 +23,24 @@ define(['jquery'],function($)
 				{
 					'click div.list-item':'show_story'
 				},
+				format_date:function(date)
+				{
+					//custom date formatting
+					var f_date = new Date(Date.parse(date));
+
+					var ap = "a.m";
+
+					var hour   = f_date.getHours();
+					var minute = f_date.getMinutes();
+
+					if (hour   > 11) { ap = "p.m";        }
+					if (hour   > 12) { hour = hour - 12; }
+					if (hour   == 0) { hour = 12;        }
+					if (minute < 10) { minute = "0" + minute; }
+
+					return "{0}:{1} {2} ".format(hour,minute, ap)+f_date.toLocaleDateString()
+
+				},
 				initialize:function()
 				{
 					
@@ -51,10 +50,16 @@ define(['jquery'],function($)
 					{
 						data.objects = list_data;
 
-						console.log(data.objects);	
 
 						$.each(list_data.objects,function(i,item)
 						{
+							item.category_str = item.categories_name.join(' / ');
+							
+							//dates dont work properly in iOS
+							item.pub_date_str = _this.format_date(item.pub_date);
+							
+							item.updated_date_str = _this.format_date(item.updated);
+
 							$this.append(_this.list_item_template(item));
 						});	
 					});
@@ -64,7 +69,7 @@ define(['jquery'],function($)
 				},
 				'show_story':function()
 				{
-
+					$this.hide('slide',{'direction':'left'});
 				}
 			});
 
