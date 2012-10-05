@@ -1,0 +1,97 @@
+/* Large desktop */
+@media (min-width: 1200px) {
+
+ }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	.list-item div.item-component img{
+		margin-top:10px;
+		width:95%;
+	}
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {  
+
+
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+	.row-fluid .span2{
+		width: 25%;
+		display:inline-block;
+	}
+
+	.row-fluid .span10{
+		width:70%;
+		display:inline-block;
+	}
+
+	.list-item div.item-component
+	{
+		height:80px;
+		margin-right:5px;
+	}
+
+	.list-item div.item-component img{
+		margin-top:5px;
+		width:95%;
+	}
+}
+
+.container{
+	min-height:200px;
+	border-radius:5px;
+}
+
+.list-item
+{
+	margin-top:10px;
+	border:1px solid #eee;
+	border-radius:5px;
+	padding:5px;
+	width:98%;
+}
+
+.list-item div.item-component
+{
+	vertical-align: top;
+	height: 100px;
+}
+
+.list-item div.item-component img
+{
+	border-radius:3px;
+}
+
+.list-item div.item-headline
+{
+	font-size:16px;
+	font-weight: bold;
+	color: #036dbe;
+	cursor:pointer;
+}
+
+.list-item div.item-headline a:hover
+{
+	color: #036dbe;
+	text-decoration: none;
+}
+
+.list-item div.item-category
+{
+	margin-bottom:15px;
+}
+
+.list-item div.item-text
+{
+	font-size:14px;
+	color:#444444;
+}
+.list-item div.item-component:first-child
+{
+	text-align: center;
+	border-right: 1px solid #eee;
+}

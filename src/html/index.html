@@ -6,17 +6,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>UI Dev Test</title>
+        <title>Mike P. - UI Dev Test</title>
 
         <base href="../" target="_blank">
 
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="UI Dev Test by Michael Price">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/uidevtest.css">
+
         <script type="text/javascript" data-main="js/app/app.js" src="js/require.js"></script>
     </head>
     <body>
@@ -26,7 +28,40 @@
 
         <!-- Application content here -->
         
+        <div class="container">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <a class="brand" href="#">UI Dev Test</a>
+                <ul class="nav">
+                  <li class="active"><a href="#">Stories</a></li>
+                </ul>
+              </div>
+            </div>
 
-    
+            <div class="page story-list">
+                
+                <script type="text/html" class="story-item-template">
+                    <div class="list-item row-fluid">
+                        <div class="span2 item-component">
+                             <img src="{{ lead_photo_image_thumb }}"/>
+                        </div>
+                        <div class="span10 item-component">
+                            <div class="item-headline"><a href="#">{{ title }}</a></div>
+                            <div class="item-category item-text">Category / Category Text</div>
+
+                            <div class="item-posted item-text">Posted 1:17 p.m. Wednesday, Aug. 15, 2012</div>
+                            <div class="item-updated item-text">Updated 1:18 p.m. Wednesday, Aug. 15, 2012</div>                    
+                        </div>
+                    </div>
+                </script>
+            </div>
+
+            <div class="page story">
+
+            </div>
+        </div>
+        
+
+        
     </body>
 </html>

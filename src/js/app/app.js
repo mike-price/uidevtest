@@ -6,7 +6,7 @@ require([
 			'backbone',
 			'bootstrap',
 			'js/app/controllers/page.js'],
-function($)
+function($,_)
 {
 	$(document.body).app_page();
 });

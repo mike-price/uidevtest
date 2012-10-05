@@ -6,7 +6,7 @@ define(['jquery','underscore','./list.js','./story.js'],function( $, _ )
 		
 		methods.init = function(options)
 		{
-			
+			$('div.story-list').app_list();
 		}
 
 		$.fn.app_page=function(method)
