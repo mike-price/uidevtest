@@ -2,24 +2,30 @@ define(['jquery'],function($)
 {
 	(function( $ )
 	{
+		//standard constructor for jquery plugins / widgets
 		var methods = {};
 		var data = {};
 		var view = {instance:null,_class:null};
 		
+		//first method to get called when object is initialized
 		methods.init = function(options)
 		{
 			var $this = $(this);
 
+			//initialize list view and register any necessary events
 			view._class = Backbone.View.extend(
 			{
 				el: $this,
 
+				//template used for rendering the list items
 				list_item_template: _.template($this.find('script.story-item-template').html()),
 
+				//event triggered when list item is clicked
 				events:
 				{
 					'click div.list-item':'show_story'
 				},
+
 				getUrlVars: function()
 				{
 				    var vars = [], hash;
@@ -61,6 +67,7 @@ define(['jquery'],function($)
 						{
 							$this.hide('slide',{'direction':'left'},function()
 							{
+								//this event is bound to a delegate inside of story.js
 								$this.trigger('item.selected',{data:data.objects[pid]});	
 							});	
 						}else
@@ -112,8 +119,6 @@ define(['jquery'],function($)
 						{
 							$this.fadeIn();
 						}
-							
-
 					});	
 					
 				},
@@ -130,12 +135,14 @@ define(['jquery'],function($)
 					{
 						data.objects = list_data.objects;
 
+						//if params['story'] exist, do navigation instead of loading the index page
 						if(params['story'])
 						{
 							_this.navigate(params['story']);
 							return;
 						}
 						
+						//no params called 'story' exists so loading the index / list ui
 						_this.load_ui();
 					});
 						
@@ -144,15 +151,18 @@ define(['jquery'],function($)
 				render:function(){
 
 				},
+				//event called when a list item is clicked
 				'show_story':function(ev)
 				{
-					//console.log(data.objects[$(ev.currentTarget).index()]);
-
+					//hide the current interface
 					$this.hide('slide',{'direction':'left'},function()
 					{
 						var pid = parseInt($(ev.currentTarget).index()+1);
+						
 						window.location = 'html/index.html?story=sto0'+pid;
 
+						//using window.location instead in order to make use of the browser nav buttons (back, forward, refresh)
+						//backbone has a router object but it doesn't meet the requirements of this project, uses # instead of ?
 						//$this.trigger('item.selected',{data:data.objects[$(ev.currentTarget).index()]});	
 					});
 					
@@ -162,12 +172,13 @@ define(['jquery'],function($)
 			methods._setup();
 		}
 
+		//make an instance of the class declared in the init function
 		methods._setup=function()
 		{
-				view.instance = new view._class();
+			view.instance = new view._class();
 		}
 
-
+		//standard constructor for jquery plugins / widgets
 		$.fn.app_list=function(method)
 		{
 			if ( methods[method] ) 

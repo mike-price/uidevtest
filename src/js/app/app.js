@@ -1,5 +1,7 @@
 
+//main entry point of the application
 
+//set base url for core dependencies
 requirejs.config({baseUrl: 'js/lib'});
 
 require([
@@ -13,11 +15,10 @@ function($)
 {
 	$(function()
 	{
-
-		
-
+		//set up mustache style templating
 		_.templateSettings.interpolate = /\{\{(.+?)\}\}/g;
 
+		//initialize the app_page widget
 		$(document.body).app_page();
 	});
 	
