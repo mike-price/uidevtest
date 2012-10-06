@@ -272,7 +272,33 @@ div.story-image-caption
 }
  
 /* Landscape phone to portrait tablet */
-@media (min-width:481px) and (max-width: 767px) {  
+@media (min-width:481px) and (max-width: 767px) {
+
+	.row-fluid .span2
+	{
+		width: 30%;
+		display:inline-block;
+	}
+
+	.row-fluid .span10{
+		width:65%;
+		display:inline-block;
+	}  
+
+	.list-item div.item-headline
+	{
+		font-size:12px;
+	}
+	.list-item div.item-category
+	{
+		margin-bottom:10px;
+	}
+
+	.list-item div.item-text
+	{
+		font-size: 10px;
+	}
+
 	div.image-credits{
 		display: block;
 		margin-left:16.5%;
