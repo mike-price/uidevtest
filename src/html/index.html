@@ -31,22 +31,22 @@
         <div class="container">
             <div class="navbar">
               <div class="navbar-inner">
-                <a class="brand" href="#">UI Dev Test</a>
-                <ul class="nav">
-                  <li class="active"><a href="#">Stories</a></li>
-                </ul>
+                <a class="brand" href="html/index.html">UI Dev Test</a>
               </div>
             </div>
 
             <div class="page story-list">
+                <div class="story-list-container">
                 
+                </div>
+
                 <script type="text/html" class="story-item-template">
                     <div class="list-item row-fluid">
                         <div class="span2 item-component">
                              <img src="{{ lead_photo_image_thumb }}"/>
                         </div>
                         <div class="span10 item-component">
-                            <div class="item-headline"><a href="#">{{ title }}</a></div>
+                            <div class="item-headline"><a>{{ title }}</a></div>
                             <div class="item-category item-text">{{ category_str }}</div>
 
                             <div class="item-posted item-text">Posted: {{ pub_date_str }}</div>
@@ -56,9 +56,74 @@
                 </script>
             </div>
 
-            <div class="page story">
+            <div class="page story-page">
 
-            </div>
+                <div class="story-page-container">
+                    ready
+                </div>
+
+                
+                <script type="text/html" class="story-page-template">
+                    <div class="story-page-breadcrumbs row-fluid">
+                        <div class="spb-text span12"><a>HOME</a><span class="spb-delimiter">></span><a>NEWS</a></div>
+                    </div>
+
+                    <div class="story-page-title row-fluid">
+                        <div class="page-stat span12 visible-phone">
+                            Updated:<span class="page-stat-item updated">{{ updated_date_str }}</span>
+                            Posted:<span class="page-stat-item posted">{{ pub_date_str }}</span>
+                        </div>
+                        
+                        <div class="span12 spt-text">
+                           {{title}}
+                        </div>
+
+                        <div class="page-stat span12 visible-tablet visible-desktop">
+                            Updated:<span class="page-stat-item updated">{{ updated_date_str }}</span>
+                            Posted:<span class="page-stat-item posted">{{ pub_date_str }}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="story-content visible-phone row-fluid">
+                        <div class="story-social-buttons span12">
+                            <span class="social-button comment"><a><span class="ico"></span>COMMENT</a></span>
+                            <span class="social-button share"><a><span class="ico"></span>SHARE</a></span>
+                            <span class="social-button favorite"><a><span class="ico"></span>FAVORITE</a></span>
+                            <span class="social-button vote"><a><span class="ico"></span>VOTE</a></span>
+                        </div>
+                        <div class="span12">
+                            <img src="{{lead_photo_image_url}}"/>
+                            <div class="image-credits">{{lead_photo_credit}}</div>
+                            <div class="story-image-caption">{{lead_photo_caption}}</div>
+                        </div>
+                         <div class="story-author span12">By <span class="story-author-text">{{author[0]}}</span></div>
+                         <div class="span12">
+                              {{story}}
+                         </div>  
+                        </div>
+
+                        <div class="story-content visible-tablet visible-desktop m_col row-fluid">
+                          <div class="span4">
+                            <img src="{{lead_photo_image_url}}"/>
+                            <div class="image-credits">{{lead_photo_credit}}</div>
+                            <div class="story-image-caption">{{lead_photo_caption}}</div>
+                          </div>
+                          <div class="span8">
+                              <div class="story-social-buttons">
+                                <span class="social-button comment"><a><span class="ico"></span>COMMENT</a></span>
+                                <span class="social-button share"><a><span class="ico"></span>SHARE</a></span>
+                                <span class="social-button favorite"><a><span class="ico"></span>FAVORITE</a></span>
+                                <span class="social-button vote"><a><span class="ico"></span>VOTE</a></span>
+                              </div>
+                              <div class="story-author">By <span class="story-author-text">{{author[0]}}</span></div>
+                              <div class="story-text">
+                                {{story}}
+                              </div> 
+                          </div> 
+                        </div>
+                    </script>
+                </div>
         </div>
         
 

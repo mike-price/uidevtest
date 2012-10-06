@@ -6,7 +6,12 @@ define(['jquery','underscore','./list.js','./story.js'],function( $, _ )
 		
 		methods.init = function(options)
 		{
-			$('div.story-list').app_list();
+
+
+			var $this = $(this);
+
+			$this.find('div.story-list').app_list();
+			$this.find('div.story-page').app_story({list:$this.find('div.story-list')});
 		}
 
 		$.fn.app_page=function(method)

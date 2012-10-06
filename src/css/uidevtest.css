@@ -2,10 +2,22 @@ body{
 	margin-bottom:15px;
 }
 
+a
+{
+	color: #036dbe;	
+}
+
 .container
 {
 	min-height:200px;
 	border-radius:5px;
+}
+
+/* List UI CSS */
+
+.story-list
+{
+	display:none;
 }
 
 .list-item
@@ -21,13 +33,15 @@ body{
 .list-item div.item-component
 {
 	vertical-align: top;
-	height: 100px;
+	height: 110px;
 }
 
 .list-item div.item-component img
 {
 	border-radius:3px;
+	border:3px solid #fff;
 	cursor:pointer;
+	box-shadow: 3px 3px 5px #888;
 }
 
 .list-item div.item-headline
@@ -38,10 +52,12 @@ body{
 	cursor:pointer;
 }
 
+
+
 .list-item div.item-headline a:hover
 {
-	color: #036dbe;
 	text-decoration: none;
+	cursor:pointer;
 }
 
 .list-item div.item-category
@@ -61,35 +77,228 @@ body{
 	border-right: 1px solid #eee;
 }
 
+
+/* Story UI CSS */
+.story-page-breadcrumbs
+{
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+	padding-bottom:0px;
+	margin-bottom:10px;
+}
+
+.span12.spb-text, .spb-text a
+{
+  font-size:11px;
+  font-weight:bold;
+  color:#036dbe;
+  margin-left:10px;
+  min-height:20px;
+}
+
+.spb-delimiter
+{
+	display:inline-block;
+	position: relative;
+	top:-2px;
+	margin-left:10px;
+}
+
+.story-page{
+	border: 1px solid #eee;
+	border-radius:5px;
+	width:97.3%;
+	height:auto;
+	padding:15px;
+	margin-top:10px;
+	display: none;
+}
+
+div.story-text
+{
+	color:#444444;
+	font-size:14px;
+	line-height: 18px;
+}
+
+.story-page div.m_col .story-text{
+	-moz-column-count:2; /* Firefox */
+	-webkit-column-count:2; /* Safari and Chrome */
+	column-count:2;
+}
+
+
+
+div.story-page-title div.spt-text{
+	font-size:24px;
+	color:#444444;
+}
+
+div.story-page-title div.span12
+{
+	margin-left:0px;
+	min-height:20px;
+}
+
+div.story-author{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+span.story-author-text{
+	color:#036dbe;
+	font-weight:bold;
+}
+
+div.story-social-buttons{
+	margin-top:10px;
+}
+
+span.social-button
+{
+	display:inline-block;
+	cursor: pointer;
+	margin-right:15px;
+}
+
+span.social-button a
+{
+	font-size: 11px;
+	font-weight:bold;
+	color:#036dbe;
+	text-decoration: underline;	
+}
+
+
+span.social-button span.ico
+{
+	display: inline-block;
+	transition: all 2s;
+	width:20px;
+	height:20px;
+	float:left;
+	background: url('../images/uidevtest-sprites.png') no-repeat;
+	-webkit-filter: grayscale(100%);
+}
+
+span.social-button:hover span.ico
+{
+	-webkit-filter: grayscale(0%);
+}
+
+span.comment span.ico{
+	background-position: 0px 0px;
+}
+
+span.share span.ico{
+	background-position: -20px 0px;
+}
+
+span.favorite span.ico{
+	background-position: -40px 0px;
+}
+
+span.vote span.ico{
+	background-position: -60px 0px;
+}
+
+div.image-credits{
+	position:relative;
+	top:-26px;
+	margin-left:46%;
+	padding:5px;
+	display:inline-block;
+	text-align: right;
+	background-color:#fff;
+	border-top-left-radius: 5px;
+	color:#000;
+	opacity:.6;
+	z-index:300;
+	width:50%;
+}
+
+div.page-stat
+{
+	line-height: 10px;
+	font-size:11px;
+	color:#444444;
+}
+
+span.page-stat-item{
+	display:inline-block;
+	padding:5px;
+	margin-bottom:10px;
+}
+
+span.page-stat-item:first-child{
+	border-right:1px solid #cdcdcd;
+	padding-right:10px;
+	margin-right:5px;
+}
+
+div.story-image-caption
+{
+	font-size:14px;
+	line-height: 14px;
+	color:#444444;
+}
 /* Large desktop */
 @media (min-width: 1200px) {
+	div.image-credits{
+		margin-left:19.6%;
+	}
+ }
 
+ /* Med desktop */
+@media (min-width: 980px) and (max-width: 1199px) {
+	div.image-credits{
+		margin-left:35.5%;
+	}
  }
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
+	/* List UI CSS */
 	.list-item div.item-component img{
 		margin-top:10px;
 		width:95%;
 	}
+
+	div.image-credits{
+		margin-left:46%;
+	}
+
+
 }
  
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {  
+@media (min-width:481px) and (max-width: 767px) {  
+	div.image-credits{
+		display: block;
+		margin-left:16.5%;
+		top:0px;
+		background-color:transparent;
+		color:#898989;
+		width:20%;
+	}
 
-
+	span.social-button span.ico
+	{
+		-webkit-filter: grayscale(0%);
+	}
 }
  
 
 /* Landscape phones and down */
-@media (max-width: 480px) { 
+@media (min-width: 0px) and (max-width: 480px) {
+	/* List UI CSS */ 
 	.row-fluid .span2{
-		width: 25%;
+		width: 30%;
 		display:inline-block;
 	}
 
 	.row-fluid .span10{
-		width:70%;
+		width:65%;
 		display:inline-block;
 	}
 	.list-item div
@@ -99,14 +308,13 @@ body{
 
 	.list-item div.item-component
 	{
-		height:80px;
+		height:90px;
 		margin-right:5px;
 	}
-
 	
 	.list-item div.item-component img{
 		margin-top:15px;
-		width:95%;
+		width:80%;
 	}
 
 	.list-item div.item-headline
@@ -118,9 +326,58 @@ body{
 		margin-bottom:10px;
 	}
 
-
 	.list-item div.item-text
 	{
 		font-size: 8px;
 	}
+
+	/* Story UI CSS */
+	.story-page{
+		border: 1px solid #eee;
+		width:88%;
+	}
+
+	div.story-social-buttons{
+		font-size:18px;
+	}
+
+	span.social-button
+	{
+		margin-right:0px;	
+	}
+	
+	span.social-button span.ico
+	{
+		-webkit-filter: grayscale(0%);
+	}
+
+	div.image-credits{
+		display: block;
+		top:0px;
+		background-color:transparent;
+		color:#898989;
+		margin-left:15%;
+	}
+	
+	span.social-button a
+	{
+		font-size:9px;
+	}
+
+	div.page-stat
+	{
+		font-size:9px;
+	}
+	
+}
+/** portrait phones **/
+@media (max-width:320px){
+	div.image-credits{
+		display: block;
+		top:0px;
+		background-color:transparent;
+		color:#898989;
+		margin-left:46%;
+	}
+	
 }

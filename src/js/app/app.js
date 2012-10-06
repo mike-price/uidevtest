@@ -9,15 +9,16 @@ require([
 			'backbone',
 			'bootstrap',
 			'js/app/controllers/page.js'],
-function($,_)
+function($)
 {
-	String.prototype.format = function() {
-    var formatted = this;
-    for(arg in arguments) {
-        formatted = formatted.replace("{" + arg + "}", arguments[arg]);
-    }
-    return formatted;
-};
+	$(function()
+	{
 
-	$(document.body).app_page();
+		
+
+		_.templateSettings.interpolate = /\{\{(.+?)\}\}/g;
+
+		$(document.body).app_page();
+	});
+	
 });
